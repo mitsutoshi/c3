@@ -3,13 +3,6 @@ c3 (Cryptocurrency Collector)
 
 c3 is collecting tool that getting and storing cryptocurrency price.
 
-## Target
-
-|Exchange|Symbol|
-|---|---|
-|bitflyer|FX_BTC_JPY|
-|bitmex|.BXBT|
-
 ## How to install
 
 ### pip
@@ -18,23 +11,27 @@ c3 is collecting tool that getting and storing cryptocurrency price.
 pip install -r requirements.txt
 ```
 
+### pipenv
+
+```
+pipenv install -r requirements.txt
+```
+
 ## How to run on local machine
 
-1. Update `config.py`.
-
-2. Start pipenv.
+1. Start pipenv.
 
     ```
     pipenv shell
     ```
 
-3. Run `c3.py`.
+2. Run `c3.py`.
 
     ```sh
     python c3.py
     ```
 
-## Layout
+## Database Layout
 
 ### InfluxDB
 
