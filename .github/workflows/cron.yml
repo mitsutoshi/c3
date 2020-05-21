@@ -11,3 +11,8 @@ jobs:
         uses: '3.8'
       - name: Run
         run: python c3.py
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+
