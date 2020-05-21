@@ -4,7 +4,7 @@ import sys
 import os
 import ccxt
 from influxdb import InfluxDBClient
-from config import targets, measurement
+from config import targets
 
 
 def main():
