@@ -1,6 +1,8 @@
 c3 (Cryptocurrency Collector)
 =============================
 
+![.github/workflows/cron.yml](https://github.com/mitsutoshi/c3/workflows/.github/workflows/cron.yml/badge.svg)
+
 c3 is collecting tool that getting and storing cryptocurrency price.
 
 ## How to install
