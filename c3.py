@@ -21,6 +21,7 @@ def main():
         ex = ex_class()
         for s in symbols:
             res = ex.fetch_ticker(symbol=s['symbol'])
+            print(f"{res['datetime']},{name},{s['symbol']},{s['currency']},{res['last']}")
             points.append({
                 'measurement': 'prices',
                 'time': res['datetime'],
@@ -30,7 +31,8 @@ def main():
                     'currency': s['currency']
                 },
                 'fields': {
-                    'value': res['last']
+                    'value': res['last'],
+                    'volume': res['baseVolume']
                 }
             })
 

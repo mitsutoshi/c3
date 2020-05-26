@@ -1,8 +1,8 @@
 on: 
   schedule:
-      - cron: '*/15 * * * *'
+      - cron: '*/5 * * * *'
 jobs:
-  first_job:
+  get_market_info:
     runs-on: [ubuntu-latest]
     steps:
       - name: Checkout
