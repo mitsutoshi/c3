@@ -7,7 +7,7 @@ ccxt==1.28.11
 certifi==2020.4.5.1
 cffi==1.14.0
 chardet==3.0.4
-cryptography==3.2
+cryptography==3.3.2
 greenlet==0.4.15
 idna==2.9
 influxdb==5.3.0
