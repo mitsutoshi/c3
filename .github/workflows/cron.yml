@@ -1,6 +1,12 @@
 on: 
   schedule:
       - cron: '0 * * * *'
+  push:
+    paths:
+      - '.github/workflows/cron.yml'
+      - 'config.py'
+      - 'c3.py'
+      - 'exchanges.py'
 jobs:
   get_market_info:
     runs-on: [ubuntu-latest]
