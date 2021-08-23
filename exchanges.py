@@ -9,9 +9,9 @@ from config import targets
 
 class Spider(metaclass=ABCMeta):
 
-    def __init__(self, name):
-        self.name = name
-        ex_class = getattr(ccxt, name)
+    def __init__(self):
+        self.name = self.__class__.__name__.lower()
+        ex_class = getattr(ccxt, self.name)
         self.ex = ex_class()
 
     @abstractmethod
@@ -30,17 +30,11 @@ class Spider(metaclass=ABCMeta):
 
 class Bitflyer(Spider):
 
-    def __init__(self):
-        super().__init__('bitflyer')
-
     def get_ticker(self, symbol: str) -> Dict[str, float]:
         return super().get_ticker(symbol)
 
 
 class Bitbank(Spider):
-
-    def __init__(self):
-        super().__init__('bitbank')
 
     def get_ticker(self, symbol: str) -> Dict[str, float]:
         return super().get_ticker(symbol)
@@ -48,17 +42,11 @@ class Bitbank(Spider):
 
 class Liquid(Spider):
 
-    def __init__(self):
-        super().__init__('liquid')
-
     def get_ticker(self, symbol: str) -> Dict[str, float]:
         return super().get_ticker(symbol)
 
 
 class Coincheck(Spider):
-
-    def __init__(self):
-        super().__init__('coincheck')
 
     def get_ticker(self, symbol: str) -> Dict[str, float]:
         return super().get_ticker(symbol)
@@ -83,16 +71,22 @@ class Gmo(Spider):
                 }
 
 
-ex_classes = {
-        'bitflyer': Bitflyer,
-        'bitbank': Bitbank,
-        'liquid': Liquid,
-        'coincheck': Coincheck,
-        'gmo': Gmo,
-        }
+class Ftx(Spider):
+
+    def get_ticker(self, symbol: str) -> Dict[str, float]:
+        return super().get_ticker(symbol)
+
+
+class Bybit(Spider):
+
+    def get_ticker(self, symbol: str) -> Dict[str, float]:
+        return super().get_ticker(symbol)
+
 
 Spider.register(Bitflyer)
 Spider.register(Bitbank)
 Spider.register(Liquid)
 Spider.register(Coincheck)
 Spider.register(Gmo)
+Spider.register(Ftx)
+Spider.register(Bybit)

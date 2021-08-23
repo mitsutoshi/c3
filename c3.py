@@ -8,9 +8,7 @@ from typing import Dict
 from influxdb import InfluxDBClient
 
 from config import targets
-
-from exchanges import ex_classes
-
+import exchanges
 
 
 def arbit(tickers, symbol: str):
@@ -48,10 +46,8 @@ def main():
     for name, symbols in targets.items():
 
         # get exchange class
-        if name in ex_classes:
-            ex = ex_classes[name]()
-        else:
-            continue
+        cls = getattr(exchanges, name.title())
+        ex = cls()
 
         for s in symbols:
             try:
@@ -63,7 +59,8 @@ def main():
                     'tags': {
                         'exchange': name,
                         'symbol': norm_symbol(s['symbol']),
-                        'currency': s['currency']
+                        'coin': s['coin'],
+                        'currency': s['currency'],
                     },
                     'fields': {
                         'last': t['last'],
