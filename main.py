@@ -88,23 +88,31 @@ def main():
                     ask_jpy = int(t['ask'] * usdjpy if s['currency'] == 'USD' else t['ask'])
                     bid_jpy = int(t['bid'] * usdjpy if s['currency'] == 'USD' else t['bid'])
 
-                    p = {
-                        'measurement': 'prices',
-                        'time': t['datetime'],
-                        'tags': {
-                            'exchange': name,
-                            'symbol': s['symbol'],
-                            'coin': s['coin'],
-                            'currency': s['currency'],
-                        },
-                        'fields': {
-                            'last': last,
-                            'ask': ask, 'bid': bid,
-                            'last_jpy': last_jpy,
-                            'ask_jpy': ask_jpy,
-                            'bid_jpy': bid_jpy
-                        }
-                    }
+                    p = create_price_point(
+                            timestamp=t['datetime'],
+                            exchange=name,
+                            coin=s['coin'],
+                            currency=s['currency'],
+                            last=last,
+                            ask=ask,
+                            bid=bid)
+                    #p = {
+                    #    'measurement': 'prices',
+                    #    'time': t['datetime'],
+                    #    'tags': {
+                    #        'exchange': name,
+                    #        'symbol': s['symbol'],
+                    #        'coin': s['coin'],
+                    #        'currency': s['currency'],
+                    #    },
+                    #    'fields': {
+                    #        'last': last,
+                    #        'ask': ask, 'bid': bid,
+                    #        'last_jpy': last_jpy,
+                    #        'ask_jpy': ask_jpy,
+                    #        'bid_jpy': bid_jpy
+                    #    }
+                    #}
 
                     print(f"{name:10} {s['symbol']:8} {last} {ask} {bid}")
                     points.append(p)

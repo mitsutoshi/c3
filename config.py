@@ -1,6 +1,6 @@
 targets = {
         'bitflyer': [
-            #{'symbol': 'BTC/JPY', 'coin': 'BTC', 'currency': 'JPY'},
+            {'symbol': 'BTC/JPY', 'coin': 'BTC', 'currency': 'JPY'},
             #{'symbol': 'ETH/JPY', 'coin': 'ETH', 'currency': 'JPY'},
             #{'symbol': 'XRP/JPY', 'coin': 'XRP', 'currency': 'JPY'},
             ],
